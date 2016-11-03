@@ -8,11 +8,13 @@ namespace Project1
 {
     public class Element
     {
-        public int value;
+        public int factor;
+        public int index;
         public Element next;
-        public Element(int val)
+        public Element(int fac, int i)
         {
-            value = val;
+            factor = fac;
+            index = i;
             next = null;
         }
     }

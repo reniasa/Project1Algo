@@ -10,15 +10,17 @@ namespace Project1
     {
         public Element head;
         public Element tail;
+        public int lenght; 
         public List()
         {
             head = null;
             tail = null;
+            lenght = 0;
         }
 
-        public void Add(int value)
+        public void Add(int factor, int index)
         {
-            Element el = new Element(value);
+            Element el = new Element(factor, index);
             if(head == null)
             {
                 head = tail = el;
@@ -30,7 +32,7 @@ namespace Project1
             }
         }
 
-        public bool Delete(int value)
+        public bool Remove(int factor, int index)
         {
             Element current = head;
             Element before = null;
@@ -40,7 +42,7 @@ namespace Project1
                 return false;
             }
 
-            while (current != null && current.value != value)
+            while (current != null && current.factor != factor)
             {
                 before = current;
                 current = current.next;
@@ -73,9 +75,28 @@ namespace Project1
             Element current = head;
             while (current != null)
             {
-                Console.Write(current.value + " ");
+                if (current.factor > 0)
+                {
+                    Console.Write("+" + current.factor + "^" + current.index);
+                }
+                else
+                {
+                    Console.Write(current.factor + "^" + current.index);
+                }
+                
                 current = current.next;
             }
+        }
+
+        public void getLenght()
+        {
+            Element current = head;
+            while (current != null)
+            {
+                lenght = lenght + 1;
+                current = current.next;
+            }
+            Console.WriteLine("***" + lenght + "***");
         }
     }
 }
