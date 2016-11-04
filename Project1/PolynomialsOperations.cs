@@ -8,16 +8,24 @@ namespace Project1
 {
     public class PolynomialsOperations
     {
+
+        
         public List Addition(List Px, List Qx)
         {
             List Wx = GlueExpressions(Px, Qx);
-            var Vx = SortAscending(Wx);
-            var Cx = CalculateTheSameIndexes(Vx);
-            return Cx;
+            List firstArgument = new List();
+            firstArgument.Add(0, -1);
+            var sortedExpressions = SortAscending(Wx);
+            var shortedExpressions = CalculateTheSameIndexes(sortedExpressions);
+            var result = GlueExpressions(firstArgument, shortedExpressions);
+            return result;
         }
 
         public List Substraction(List Px, List Qx)
         {
+            List firstArgument = new List();
+            firstArgument.Add(0, -1);
+
             Element el = Qx.head;
             List QxCopy = new List();
             while(el != null)
@@ -27,14 +35,46 @@ namespace Project1
                 el = el.next;
             }
             List Wx = GlueExpressions(Px, QxCopy);
-            var Vx = SortAscending(Wx);
-            var Cx = CalculateTheSameIndexes(Vx);
-            return Cx;
+            var sortedExpressions = SortAscending(Wx);
+            var shortedExpressions = CalculateTheSameIndexes(sortedExpressions);
+            var result = GlueExpressions(firstArgument, shortedExpressions);
+            return result;
         }
 
         public List Multiplication(List Px, List Qx)
         {
-            return new Project1.List();
+            List firstArgument = new List();
+            firstArgument.Add(0, -1);
+
+            List multiplyResult = new List();
+            Element pxEl = Px.head;
+            Element qxEl = Qx.head;
+            Px.getLenght();
+            Qx.getLenght();
+            for(int i = 0; i < Px.lenght; i++)
+            {
+                if(pxEl.factor != 0)
+                {
+                    for(int j = 0; j < Qx.lenght; j++)
+                    {
+                        if(qxEl.factor != 0)
+                        {
+                            var factor = pxEl.factor * qxEl.factor;
+                            var index = pxEl.index + qxEl.index;
+                            multiplyResult.Add(factor, index);
+                            
+                        }
+                        qxEl = qxEl.next;
+                    }
+
+                }
+                pxEl = pxEl.next;
+                qxEl = Qx.head;
+            }
+            var sortedResult = SortAscending(multiplyResult);
+            var shortedExpressions = CalculateTheSameIndexes(sortedResult);
+            var result = GlueExpressions(firstArgument, shortedExpressions);
+            return result;
         }
         private static List GlueExpressions(List Px, List Qx)
         {
@@ -49,7 +89,7 @@ namespace Project1
             el = Qx.head;
             while (el != null)
             {
-                if (el.factor == 0)
+                if (el.factor == 0 && el.index == -1)
                 {
                     el = el.next;
                 }
