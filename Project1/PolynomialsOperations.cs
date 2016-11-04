@@ -10,27 +10,49 @@ namespace Project1
     {
         public List Addition(List Px, List Qx)
         {
+            List Wx = GlueExpressions(Px, Qx);
+            var Vx = SortAscending(Wx);
+            var Cx = CalculateTheSameIndexes(Vx);
+            return Cx;
+        }
+
+        public List Substraction(List Px, List Qx)
+        {
+            Element el = Qx.head;
+            List QxCopy = new List();
+            while(el != null)
+            {
+                Element newEl = new Element(el.factor * -1, el.index);
+                QxCopy.Add(newEl.factor, newEl.index);
+                el = el.next;
+            }
+            List Wx = GlueExpressions(Px, QxCopy);
+            var Vx = SortAscending(Wx);
+            var Cx = CalculateTheSameIndexes(Vx);
+            return Cx;
+        }
+        private static List GlueExpressions(List Px, List Qx)
+        {
             List Wx = new List();
             Element el = Px.head;
 
-            while(el != null)
+            while (el != null)
             {
                 Wx.Add(el.factor, el.index);
                 el = el.next;
             }
             el = Qx.head;
-            while(el != null)
+            while (el != null)
             {
-                if(el.factor == 0)
+                if (el.factor == 0)
                 {
                     el = el.next;
                 }
                 Wx.Add(el.factor, el.index);
                 el = el.next;
             }
-            var Vx = SortAscending(Wx);
-            var Cx = CalculateTheSameIndexes(Vx);
-            return Cx;
+
+            return Wx;
         }
 
         private List SortAscending(List Wx)
@@ -71,7 +93,7 @@ namespace Project1
             List Calculated = new List();
             Vx.getLenght();
             var lenght = Vx.lenght / 2;
-            for (int i = 0; i < lenght; i++)
+            for(;;)
             {
                 newFactor = 0;
                 while (el.index == el.next.index)

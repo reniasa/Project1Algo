@@ -70,23 +70,7 @@ namespace Project1
             return true;
         }
 
-        public void Show()
-        {
-            Element current = head;
-            while (current != null)
-            {
-                if (current.factor > 0)
-                {
-                    Console.Write("+" + current.factor + "x^" + current.index);
-                }
-                else
-                {
-                    Console.Write(current.factor + "x^" + current.index);
-                }
-                
-                current = current.next;
-            }
-        }
+        
 
         public void getLenght()
         {
