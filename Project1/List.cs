@@ -74,6 +74,7 @@ namespace Project1
 
         public void GetLenght()
         {
+            lenght = 0;
             Element current = head;
             while (current != null)
             {

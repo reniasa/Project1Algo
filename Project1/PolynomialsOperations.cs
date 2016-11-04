@@ -104,6 +104,7 @@ namespace Project1
         private List SortAscending(List Wx)
         {
             List Vx = new List();
+            int lastIndex = 0;
             Wx.GetLenght();
             for (int i = 0; i < Wx.lenght; i++) 
             {
@@ -119,10 +120,15 @@ namespace Project1
                     }
                     el = el.next;
                 }
+                if(el == Wx.tail && lastIndex == el.index && max == null)
+                {
+                    Vx.Add(el.factor, el.index);
+                }
                 if(max != null)
                 {
                     Wx.Remove(max.factor, max.index);
                     Vx.Add(max.factor, max.index);
+                    lastIndex = max.index;
                 }
                 
             }
