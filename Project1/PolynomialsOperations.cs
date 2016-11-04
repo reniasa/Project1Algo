@@ -67,30 +67,37 @@ namespace Project1
         {
             Element el = Vx.head;
             Element newEl = null;
+            int newFactor = 0;
             List Calculated = new List();
             Vx.getLenght();
             var lenght = Vx.lenght / 2;
             for (int i = 0; i < lenght; i++)
             {
-
+                newFactor = 0;
                 while (el.index == el.next.index)
                 {
                     
-                    newEl = new Element(el.factor + el.next.factor, el.index);
+                    newFactor += el.factor;
                     el = el.next;
-                    if(el.next == null)
+
+                    if (el.next == null)
                     {
                         break;
                     }
                     
                 }
-
+                newFactor += el.factor;
+                newEl = new Element(newFactor, el.index);
+                Calculated.Add(newEl.factor, newEl.index);
                 if (el.next != null)
                 {
                     el = el.next;
                 }
+                else
+                {
+                    break;
+                }
                 
-                Calculated.Add(newEl.factor, newEl.index);
             }
             return Calculated;
         }

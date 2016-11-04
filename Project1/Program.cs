@@ -12,15 +12,18 @@ namespace Project1
         {
             List list1 = new List();
             list1.Add(0, -1);
-            list1.Add(-5,4);
-            list1.Add(6, 7);
+            list1.Add(-5,2);
+            list1.Add(6, 5);
             list1.Show();
             Console.WriteLine();
 
             List list2 = new List();
             list2.Add(0, -1);
-            list2.Add(7, 4);
-            list2.Add(8, 7);
+            list2.Add(7, 2);
+            list2.Add(4, 5);
+            list2.Add(8, 5);
+            list2.Add(8, 5);
+            list2.Add(8, 5);
             list2.Show();
             Console.WriteLine();
 

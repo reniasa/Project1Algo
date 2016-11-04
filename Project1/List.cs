@@ -77,11 +77,11 @@ namespace Project1
             {
                 if (current.factor > 0)
                 {
-                    Console.Write("+" + current.factor + "^" + current.index);
+                    Console.Write("+" + current.factor + "x^" + current.index);
                 }
                 else
                 {
-                    Console.Write(current.factor + "^" + current.index);
+                    Console.Write(current.factor + "x^" + current.index);
                 }
                 
                 current = current.next;
@@ -96,7 +96,7 @@ namespace Project1
                 lenght = lenght + 1;
                 current = current.next;
             }
-            Console.WriteLine("***" + lenght + "***");
+            //Console.WriteLine("***" + lenght + "***");
         }
     }
 }
