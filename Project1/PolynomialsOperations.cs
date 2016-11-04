@@ -31,6 +31,11 @@ namespace Project1
             var Cx = CalculateTheSameIndexes(Vx);
             return Cx;
         }
+
+        public List Multiplication(List Px, List Qx)
+        {
+            return new Project1.List();
+        }
         private static List GlueExpressions(List Px, List Qx)
         {
             List Wx = new List();
