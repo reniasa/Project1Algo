@@ -46,7 +46,7 @@ namespace Project1
             for (;;)
             {
                 Console.WriteLine();
-                Console.Write("Wybierz działania: ");
+                Console.WriteLine("Wybierz działania: ");
                 Console.WriteLine("1. Dodawanie");
                 Console.WriteLine("2. Odejmowanie");
                 Console.WriteLine("3. Mnożenie");

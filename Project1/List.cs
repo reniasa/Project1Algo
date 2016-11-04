@@ -72,7 +72,7 @@ namespace Project1
 
         
 
-        public void getLenght()
+        public void GetLenght()
         {
             Element current = head;
             while (current != null)
@@ -80,7 +80,6 @@ namespace Project1
                 lenght = lenght + 1;
                 current = current.next;
             }
-            //Console.WriteLine("***" + lenght + "***");
         }
     }
 }

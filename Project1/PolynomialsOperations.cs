@@ -49,8 +49,8 @@ namespace Project1
             List multiplyResult = new List();
             Element pxEl = Px.head;
             Element qxEl = Qx.head;
-            Px.getLenght();
-            Qx.getLenght();
+            Px.GetLenght();
+            Qx.GetLenght();
             for(int i = 0; i < Px.lenght; i++)
             {
                 if(pxEl.factor != 0)
@@ -76,6 +76,7 @@ namespace Project1
             var result = GlueExpressions(firstArgument, shortedExpressions);
             return result;
         }
+
         private static List GlueExpressions(List Px, List Qx)
         {
             List Wx = new List();
@@ -103,7 +104,7 @@ namespace Project1
         private List SortAscending(List Wx)
         {
             List Vx = new List();
-            Wx.getLenght();
+            Wx.GetLenght();
             for (int i = 0; i < Wx.lenght; i++) 
             {
                 Element el = Wx.head;
@@ -136,7 +137,7 @@ namespace Project1
             Element newEl = null;
             int newFactor = 0;
             List Calculated = new List();
-            Vx.getLenght();
+            Vx.GetLenght();
             var lenght = Vx.lenght / 2;
             for(;;)
             {
